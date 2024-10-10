@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SearchPage</title>
+  <style>
+    /* 상태바를 위한 공간 확보 */
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 10px;
+      font-size: 14px; /* 상태바 글씨 크기 조정 */
+      color: #333;
+      background-color: #fff;
+    }
+
+    .status-bar div {
+      display: flex;
+      align-items: center;
+    }
+
+    .time {
+      font-weight: bold;
+    }
+
+    .icons img {
+      width: 20px;
+      height: 20px;
+      margin-left: 8px;
+    }
+
+    /* 반응형 디자인 적용 */
+    @media (max-width: 768px) {
+      .search-page-title {
+        font-size: 18px; /* 반응형을 위한 텍스트 크기 조정 */
+      }
+
+      .search-badge {
+        flex-direction: column;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      .search-input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .keyword-group {
+        flex-direction: column;
+        margin-top: 15px;
+      }
+
+      .navicon,
+      .backicon {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    /* 기본 디자인 */
+    .search-page {
+      background-color: rgba(255, 255, 255, 1);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .navBar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 50px; /* 네비게이션 바 높이 조정 */
+    }
+
+    .navicon,
+    .backicon {
+      width: 30px;
+      height: 30px;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .navicon:hover,
+    .backicon:hover {
+      width: 35px;
+      height: 35px;
+    }
+
+    .search-page-title {
+      margin-top: 10px;
+      color: rgba(0, 0, 0, 1);
+      font: 500 22px 'Noto Sans KR', sans-serif; /* 글씨 크기 조정 */
+      text-align: center;
+    }
+
+    .search-badge {
+      border-radius: 25px;
+      background-color: rgba(255, 225, 231, 1);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 500px; /* 입력창 최대 크기 설정 */
+    }
+
+    .search-input {
+      border: none;
+      outline: none;
+      padding: 10px 15px;
+      border-radius: 25px;
+      font-size: 16px;
+      color: #333;
+      background-color: rgba(255, 225, 231, 1);
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+
+    .img-2 {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 30px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .img-2:active {
+      opacity: 0.7;
+    }
+
+    .div-5 {
+      display: flex;
+      margin-top: 40px;
+      width: 100%;
+      max-width: 500px;
+      flex-direction: column;
+      white-space: nowrap;
+      justify-content: start;
+      font: 500 16px 'Noto Sans KR', sans-serif;
+    }
+
+    .keyword-group {
+      display: flex;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 500px;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap; /* 키워드 배지를 줄이거나 커질 때 자동으로 줄 바꿈 */
+    }
+
+    .keyword-badge {
+      border-radius: 15px;
+      background-color: rgba(255, 218, 224, 1);
+      padding: 5px 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="div">
+  <!-- 상단 상태바 -->
+  <div class="status-bar">
+    <div class="time">9:41</div>
+    <div class="icons">
+      <img src="/img/wifi.png" alt="Wi-Fi 아이콘">
+      <img src="/img/battery.png" alt="배터리 아이콘">
+    </div>
+  </div>
+
+  <!-- 네비게이션 바 -->
+  <div class="search-page">
+    <div class="navBar">
+      <a href="search.html">
+    <img class="backicon" src="/img/backicon.png" alt="뒤로가기 아이콘">
+    </a>
+    <a href="CategoryPage.html">
+      <img class="navicon" src="/img/nav.png" alt="햄버거 아이콘">
+    </a>
+  </div>
+
+    <div class="search-page-title">
+      세상의 모든 <span style="color: rgba(255, 86, 116, 1)">수수료</span>,
+      <br />
+      당신의 손끝에서 시작됩니다
+    </div>
+
+    <form action="https://www.google.com/search" method="GET">
+      <div class="search-badge">
+        <input type="text" name="q" class="search-input" placeholder="검색어를 입력하세요" />
+        <button type="submit" style="background:none; border:none; padding:0;">
+          <img
+            id="search-icon"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/822bb1c0cea24b6ae8f99cbb296a950cb3eeb82a47d92dd944dabc3dde562339?placeholderIfAbsent=true&apiKey=7f59c46ddfa6482f9d12e305b9ebb363"
+            class="img-2"
+            alt="검색 아이콘"
+          />
+        </button>
+      </div>
+    </form>
+
+    <div class="div-5">
+      <div class="keyword">핫🔥키워드</div>
+      <div class="keyword-group">
+        <a href="result.html">
+          <div class="keyword-badge">#생활비대출</div>
+        </a>
+        <a href="result.html">
+          <div class="keyword-badge">#주택담보대출</div>
+        </a>
+        <a href="result.html">
+          <div class="keyword-badge">#엽떡배달비</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

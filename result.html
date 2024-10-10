@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResultPage</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f7f7f7;
+        }
+
+        .result-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .navBar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 50px; /* 네비게이션 바 높이 조정 */
+    }
+
+    .navicon,
+    .backicon {
+      width: 30px;
+      height: 30px;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .navicon:hover,
+    .backicon:hover {
+      width: 35px;
+      height: 35px;
+    }
+
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            background-color: #f5f5f5;
+            border-radius: 25px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .search-results {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-item img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .result-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .result-title {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .result-rate {
+            color: #ff5674;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 10px;
+            position: relative;
+            max-width: 500px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .navBar, .search-bar, .search-results, .highlight-box {
+                max-width: 100%;
+            }
+
+            .search-bar input {
+                font-size: 14px;
+            }
+
+            .result-item {
+                padding: 10px;
+            }
+
+            .result-title {
+                font-size: 14px;
+            }
+
+            .highlight-box {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="result-page">
+
+   <!-- 상단 상태바 -->
+  <div class="status-bar">
+    <div class="time">9:41</div>
+    <div class="icons">
+      <img src="/img/wifi.png" alt="Wi-Fi 아이콘">
+      <img src="/img/battery.png" alt="배터리 아이콘">
+    </div>
+  </div>
+
+  <!-- 네비게이션 바 -->
+  <div class="search-page">
+    <div class="navBar">
+        <a href="search.html">
+      <img class="backicon" src="/img/backicon.png" alt="뒤로가기 아이콘">
+      </a>
+      <a href="CategoryPage.html">
+        <img class="navicon" src="/img/nav.png" alt="햄버거 아이콘">
+      </a>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="환율 수수료" />
+        <button>
+            <img src="https://cdn-icons-png.flaticon.com/512/482/482631.png" alt="Search Icon" width="24" />
+        </button>
+    </div>
+
+    <!-- Search Results -->
+    <div class="search-results">
+        <div class="result-item" style="background-color: #ffdfdf;">
+            <div class="result-info">
+                <div class="result-title">인터넷 환전</div>
+                <div>미국 달러(USD) 기준</div>
+            </div>
+            <div class="result-rate">0.48%</div>
+        </div>
+
+        <div class="result-item">
+            <div class="result-info">
+                <div class="result-title">인터넷 환전</div>
+                <div>미국 달러(USD) 기준</div>
+            </div>
+            <div class="result-rate">0.67%</div>
+        </div>
+
+        <div class="result-item">
+            <div class="result-info">
+                <div class="result-title">영업소 환전</div>
+                <div>미국 달러(USD) 기준</div>
+            </div>
+            <div class="result-rate">0.77%</div>
+        </div>
+
+        <div class="result-item">
+            <div class="result-info">
+                <div class="result-title">인터넷 환전</div>
+                <div>미국 달러(USD) 기준</div>
+            </div>
+            <div class="result-rate">0.89%</div>
+        </div>
+
+        <div class="result-item">
+            <div class="result-info">
+                <div class="result-title">영업소 환전</div>
+                <div>미국 달러(USD) 기준</div>
+            </div>
+            <div class="result-rate">0.80%</div>
+        </div>
+    </div>
+
+    <!-- Highlight Box -->
+    <div class="highlight-box">
+        5초만에 내 정보 입력하고
+        <br>
+        <span style="color: #ff5674; font-weight: bold;">개인별 맞춤 최저가 수수료</span> 보러가기
+    </div>
+</div>
+
+</body>
+</html>
